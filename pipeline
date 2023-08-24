@@ -6,17 +6,22 @@ pipeline {
     stages {
         stage('start_1') {
             steps {
-                sh 'pip install -r requirements.txt --break-system-packages'
+                sh 'apt install -y python3-pip'
             }
         }
         stage('start_2') {
+            steps {
+                sh 'pip install -r requirements.txt --break-system-packages'
+            }
+        }
+        stage('start_3') {
             steps {
                 sh 'chmod u+x hello.py'
                 sh 'touch result.txt'
                 sh 'python3 hello.py --name "${params.NAME}" > result.txt'
             }
         }
-        stage('start_3') {
+        stage('start_4') {
             steps {
                 archiveArtifacts artifacts: 'result.txt'
             }
