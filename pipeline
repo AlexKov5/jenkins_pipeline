@@ -9,7 +9,7 @@ pipeline {
                 sh 'apt install -y python3-pip'
                 sh 'apt install -y python3.11-venv'
                 sh 'python3 -m venv venv'
-                sh 'source venv/bin/activate'
+                sh 'source venv/Scripts/activate'
                 sh 'pip install -r requirements.txt'
                 sh 'chmod u+x hello.py'
                 sh 'touch result.txt'
