@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('start_1') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh 'pip install -r requirements.txt --break-system-packages'
             }
         }
         stage('start_2') {
