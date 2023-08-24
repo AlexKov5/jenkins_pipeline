@@ -7,6 +7,8 @@ pipeline {
         stage('start_1') {
             steps {
                 sh 'apt install -y python3-pip'
+                sh 'python3 -m venv venv'
+                sh 'source venv/bin/activate'
                 sh 'pip install -r requirements.txt'
                 sh 'chmod u+x hello.py'
                 sh 'touch result.txt'
