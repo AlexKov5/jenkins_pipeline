@@ -6,7 +6,6 @@ pipeline {
     stages {
         stage('start_1') {
             steps {
-                sh 'yum install -y python3-pip'
                 sh 'pip install -r requirements.txt'
                 sh 'chmod u+x hello.py'
                 sh 'touch result.txt'
