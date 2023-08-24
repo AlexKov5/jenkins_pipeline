@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        name: 'NAME'
+        string(name: 'NAME', description: 'Enter a name')
     }
     stages {
         stage('start_1') {
@@ -10,7 +10,7 @@ pipeline {
                 sh 'pip install -r requirements.txt'
                 sh 'chmod u+x hello.py'
                 sh 'touch result.txt'
-                sh 'python3 hello.py --name "${NAME}" > result.txt'
+                sh 'python3 hello.py --name "${params.NAME}" > result.txt'
             }
         }
         stage('start_2') {
